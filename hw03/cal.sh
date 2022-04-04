@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "project management in github"
+
 arr=()
 
 read num1 < num1.txt
