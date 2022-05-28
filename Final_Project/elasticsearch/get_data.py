@@ -27,7 +27,7 @@ def get_data(gender: str, fashion: tuple) -> dict:
     index_name_bottom = gender + '_' + 'bottom'     # 성별_하의
 
     query_top = {"query":{"match":{"id":f"{fashion[0]}"}}}      # 상의 쿼리문
-    query_bottom = {"query":{"match":{"id":f"{fashion[0]}"}}}       # 하의 쿼리문
+    query_bottom = {"query":{"match":{"id":f"{fashion[1]}"}}}       # 하의 쿼리문
 
     top_data = es.search(index=index_name_top, body=query_top, pretty=True )     # 데이터 가져옴
     bottom_data = es.search(index=index_name_bottom, body=query_bottom, pretty=True)
