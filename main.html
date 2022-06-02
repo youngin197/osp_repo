@@ -33,7 +33,12 @@
       body {
         margin: 0px;
       }
-
+      form{
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+      }
       #OTION {
         font-size: 40px;
         margin-bottom: 30px;
@@ -138,22 +143,23 @@
         <div id="bodyline">
           <div id="title">
             오늘 뭐입지?</div>
-            <span>
-              <fieldset>
-                <legend>성별</legend>   
-                <div>
-                  <input type="radio" id="man" name="drone" value="man"
-                         checked>
-                  <label for="man">남자</label>
-                </div>
             
-                <div>
-                  <input type="radio" id="woman" name="drone" value="woman">
-                  <label for="woman">여자</label>
-                </div>
-            </fieldset>
-        </span>
-            <form>
+            <form action="result.html" method="get">
+              <span>
+                <fieldset>
+                  <legend>성별</legend>   
+                  <div>
+                    <input type="radio" id="man" name="drone" value="man"
+                           checked>
+                    <label for="man">남자</label>
+                  </div>
+              
+                  <div>
+                    <input type="radio" id="woman" name="drone" value="woman">
+                    <label for="woman">여자</label>
+                  </div>
+                </fieldset>
+              </span>
               <label class="bold">
                 <div id=location>
                   지역
@@ -182,8 +188,8 @@
                 </optgroup>
                 </select>
               </label>
+              <input id="submit" type="submit" value="결정해줘!">
             </form>
-            <input id="submit" type="submit" value="결정해줘!">
             <div id="sign">
                 오늘의 날씨를 고려하여 어떤 옷을 입을지 추천해드립니다. 당신에게 도움이 되었으면 좋겠네요.
         </div>
