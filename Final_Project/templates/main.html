@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>weather</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="jquery-3.6.0.js"></script>
+    <style>
+      #content {
+        background-color: #fffefb;
+        display: flex;
+        flex-direction: column;
+      }
+      #headline {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      #bodyline {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .head_content {
+        padding: 5px 15px;
+      }
+      .head_content:hover {
+        background-color: #f7f6f3;
+        text-decoration: underline;
+      }
+      body {
+        margin: 0px;
+      }
+      form{
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+      }
+      #OTION {
+        font-size: 40px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-family: "inter";
+        font-weight: lighter;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      #main {
+        display: flex;
+        padding: 10px 30px 10px 80px;
+        align-items: center;
+      }
+      #icon {
+        max-width: 50px;
+      }
+      #icon_name {
+        font-weight: bold;
+      }
+
+      .link:hover {
+        text-decoration: underline;
+      }
+      #wrapper {
+        display: flex;
+        align-content: space-between;
+        justify-content: space-between;
+        min-height: 100vh;
+      }
+      #content {
+        width: 100%;
+      }
+      #label {
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        border: solid 1px rgb(225, 225, 225);
+        border-radius: 5px;
+      }
+      #label:hover {
+        border: solid 1px rgb(201, 201, 201);;
+      }
+      #label:focus {
+        outline: solid 3px #abdcef;
+        border: solid 1px #00a2e3;
+      }
+      #label:active {
+        outline: none;
+        border: solid 1px #00a2e3;
+      }
+      #location{
+        margin-top: 10px;
+        font-size: 13px;
+      }
+      #sign {
+        color: #bbbbbb;
+        font-size: 13px;
+      }
+      #sign:hover {
+        color: #898989;
+      }
+      #submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        min-width: 400px;
+        margin: 10px;
+        font-size: 18px;
+        border: solid 1px rgb(225, 225, 225);
+        border-radius: 5px;
+        color: #ec625b;
+        background-color: #fdf5f2;
+        border: solid 1px #ec625b;
+      }
+      #submit:hover{
+        background-color: #feece5;
+      }
+      #submit:active{
+          background-color: #fee3d9;
+      }
+      #title {
+        font-size: 35px;
+        padding: 20px;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="content">
+        <div id="headline">
+        </div>
+        <div id="bodyline">
+          <div id="title">
+            오늘 뭐입지?</div>
+            
+            <form action="result.html" method="get">
+              <span>
+                <fieldset>
+                  <legend>성별</legend>   
+                  <div>
+                    <input type="radio" id="man" name="gender" value="man"
+                           checked>
+                    <label for="man">남자</label>
+                  </div>
+              
+                  <div>
+                    <input type="radio" id="woman" name="gender" value="woman">
+                    <label for="woman">여자</label>
+                  </div>
+                </fieldset>
+              </span>
+              <label class="bold">
+                <div id=location>
+                  지역
+                </div>
+                <select id="label" name="location">
+                  <optgroup label="시">
+                  <option>서울특별시</option>
+                  <option>부산광역시</option>
+                  <option selected>대구광역시</option>
+                  <option>인천광역시</option>
+                  <option>울산광역시</option>
+                  <option>광주광역시</option>
+                  <option>대전광역시</option>
+                  <option>세종특별자치시</option>
+                </optgroup>
+                <optgroup label="도">
+                  <option>경기도</option>
+                  <option>강원도</option>
+                  <option>충청북도</option>
+                  <option>충청남도</option>
+                  <option>전라북도</option>
+                  <option>전라남도</option>
+                  <option>경상북도</option>
+                  <option>경상남도</option>
+                  <option>제주특별자치도</option>
+                </optgroup>
+                </select>
+              </label>
+              <input id="submit" type="submit" value="결정해줘!">
+            </form>
+            <div id="sign">
+                오늘의 날씨를 고려하여 어떤 옷을 입을지 추천해드립니다. 당신에게 도움이 되었으면 좋겠네요.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

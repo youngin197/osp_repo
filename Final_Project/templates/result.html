@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>weather_result</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="jquery-3.6.0.js"></script>
+    <style>
+      #content {
+        background-color: #fffefb;
+        display: flex;
+        flex-direction: column;
+      }
+      #headline {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      #bodyline {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .head_content {
+        padding: 5px 15px;
+      }
+      .head_content:hover {
+        background-color: #f7f6f3;
+        text-decoration: underline;
+      }
+      body {
+        margin: 0px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .link:hover {
+        text-decoration: underline;
+      }
+      #wrapper {
+        display: flex;
+        align-content: space-between;
+        justify-content: space-between;
+        min-height: 100vh;
+      }
+      #content {
+        width: 100%;
+      }
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        min-width: 400px;
+        margin: 10px;
+        font-size: 18px;
+        background-color: white;
+        border: solid 1px rgb(225, 225, 225);
+        border-radius: 5px;
+      }
+      #title {
+        font-size: 35px;
+        padding: 20px;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      hr {
+        width: 400px;
+        color: #bbbbbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="content">
+        <div id="headline">
+
+        </div>
+        <div id="bodyline">
+          <div id="title">
+            오늘 날씨 : 00.0도, 맑음</div>
+            추천 의상: 가디건, 청바지, 반팔티
+            <hr/>
+            <div>해당 분류에서 요즘 유행하는 패션</div>
+            <span>그림 1</span>
+            <span>그림 2</span>
+            <span>그림 3</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
