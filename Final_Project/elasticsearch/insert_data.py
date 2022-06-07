@@ -13,29 +13,36 @@
 # 1 : 청바지, 2 : 트레이닝 바지, 3 : 슬랙스, 4 : 면바지, 5 : 반바지, 6 : 롱스커트, 7 : 레깅스, 8 : 미니스커트
 # t1_wm : 여자 상의 반팔 티셔츠
 
-import enum
-import sys, json
+import sys, json, time
 from elasticsearch import Elasticsearch
 
-es_host = "http://localhost:9200"
-es = Elasticsearch(es_host)
-index_name = tuple(['man_top', 'man_bottom', 'woman_top', 'woman_bottom'])      # 인덱스의 이름
+def insert_data():
+    # DataBase에 데이터를 넣음
+    es_host = "http://localhost:9200"
+    es = Elasticsearch(es_host)
+    index_name = tuple(['man_top', 'man_bottom', 'woman_top', 'woman_bottom'])      # 인덱스의 이름
 
-es.indices.delete(index=index_name, ignore = [400, 404])        # 혹시 파일이 중복되서 들어갈 수 있으므로
+    es.indices.delete(index=index_name, ignore = [400, 404])        # 혹시 파일이 중복되서 들어갈 수 있으므로
 
-with open('/home/dntmdxor/osp_team/data.json') as f:
-    # 경로 수정 필요함
-    data = json.load(f)
+    with open('/home/dntmdxor/osp_team/data.json') as f:
+        # 경로 수정 필요함
+        data = json.load(f)
 
-for name in index_name:
-    # index_name별로 데이터를 가져옴
-    for index, document in enumerate(data[name], 1):
-        es.index(index= name, id= index, document= document)        # DataBase에 데이터를 넣음
+    for name in index_name:
+        # index_name별로 데이터를 가져옴
+        for index, document in enumerate(data[name], 1):
+            es.index(index= name, id= index, document= document) 
+
+    time.sleep(1)
+            
+
+if __name__ == "__main__":
+    insert_data()
 
 
 # **************************************************************************************************
-#                   *************** 아래는 딕셔너리 형태의 데이터임 *************** 
-#        *************** 모든 딕셔너리 데이터는 json 형태로 저장해놓았으므로 필요시에 참조 ************
+# *************************** 아래는 딕셔너리 형태의 데이터임 ****************************************
+# **************** 모든 딕셔너리 데이터는 json 형태로 저장해놓았으므로 필요시에 참조 ******************
 # **************************************************************************************************
 
 
