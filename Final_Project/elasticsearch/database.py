@@ -109,43 +109,43 @@ def set_table(gender : int) -> dict:
                 woman[(t, w)] = [(0), (0)]
 
 
-        woman[(0, 0)] = woman[(0, 1)] = woman[(0, 2)] = [(6, 5, 8), (1)]
-        woman[(0, 3)] = woman[(0, 4)] = woman[(0, 5)] = [(0), (0)]
+        woman[(0, 0)] = woman[(0, 1)] = woman[(0, 2)] = [[6, 5, 8], [1]]
+        woman[(0, 3)] = woman[(0, 4)] = woman[(0, 5)] = [[0], [0]]
 
-        woman[(1, 0)] = woman[(1, 1)] = woman[(1, 2)] = woman[(1, 3)] = woman[(1, 4)] =  woman[(1, 5)] = [(6, 5, 8), (1)]
+        woman[(1, 0)] = woman[(1, 1)] = woman[(1, 2)] = woman[(1, 3)] = woman[(1, 4)] =  woman[(1, 5)] = [[6, 5, 8], [1]]
 
-        woman[(2, 0)] = [(6, 5, 3), (4)]
-        woman[(2, 1)] = woman[(2, 2)] = woman[(2, 3)] = woman[(2, 4)] = [(6, 8), (2)]
-        woman[(2, 5)] = [(0), (0)]
+        woman[(2, 0)] = [[6, 5, 3], [4]]
+        woman[(2, 1)] = woman[(2, 2)] = woman[(2, 3)] = woman[(2, 4)] = [[6, 8], [2]]
+        woman[(2, 5)] = [[0], [0]]
 
-        woman[(3, 0)] = woman[(3, 1)] = [(2, 5), (6)]
-        woman[(3, 2)] = woman[(3, 3)] = woman[(3, 4)] = [(2, 3), (1)]
-        woman[(3, 5)] = [(0), (0)]
+        woman[(3, 0)] = woman[(3, 1)] = [[2, 5], [6]]
+        woman[(3, 2)] = woman[(3, 3)] = woman[(3, 4)] = [[2, 3], [1]]
+        woman[(3, 5)] = [[0], [0]]
 
-        woman[(4, 0)] = [(6), (4)]
-        woman[(4, 1)] = [(6), (1)]
-        woman[(4, 2)] = [(6), (3)]
-        woman[(4, 3)] = woman[(4, 4)] = [(2), (2)]
-        woman[(4, 5)] = [(0), (0)]
+        woman[(4, 0)] = [[6], [4]]
+        woman[(4, 1)] = [[6], [1]]
+        woman[(4, 2)] = [[6], [3]]
+        woman[(4, 3)] = woman[(4, 4)] = [[2], [2]]
+        woman[(4, 5)] = [[0], [0]]
 
-        woman[(5, 0)] = [(4), (1)]
-        woman[(5, 1)] = [(4), (3)]
-        woman[(5, 2)] = woman[(5, 3)] = woman[(5, 4)] = [(5), (6)]
-        woman[(5, 5)] = [(0), (0)]
+        woman[(5, 0)] = [[4], [1]]
+        woman[(5, 1)] = [[4], [3]]
+        woman[(5, 2)] = woman[(5, 3)] = woman[(5, 4)] = [[5], [6]]
+        woman[(5, 5)] = [[0], [0]]
 
-        woman[(6, 0)] = woman[(6, 1)] = woman[(6, 2)] = woman[(6, 3)] = woman[(6, 4)] = [(2, 4), (2, 6)]
-        woman[(6, 5)] = [(0), (0)]
+        woman[(6, 0)] = woman[(6, 1)] = woman[(6, 2)] = woman[(6, 3)] = woman[(6, 4)] = [[2, 4], [2, 6]]
+        woman[(6, 5)] = [[0], [0]]
 
-        woman[(7, 0)] = woman[(7, 1)] = woman[(7, 2)] = woman[(7, 3)] = woman[(7, 4)] = [(1), (5, 8)]
-        woman[(7, 5)] = [(0), (0)]
+        woman[(7, 0)] = woman[(7, 1)] = woman[(7, 2)] = woman[(7, 3)] = woman[(7, 4)] = [[1], [5, 8]]
+        woman[(7, 5)] = [[0], [0]]
 
-        woman[(8, 0)] = [(7), (8, 7)]
-        woman[(8, 1)] = woman[(8, 2)] = woman[(8, 3)] = woman[(8, 4)] = [(1), (5)]
-        woman[(8, 5)] = [(0), (0)]
+        woman[(8, 0)] = [[7], [8, 7]]
+        woman[(8, 1)] = woman[(8, 2)] = woman[(8, 3)] = woman[(8, 4)] = [[1], [5]]
+        woman[(8, 5)] = [[0], [0]]
 
-        woman[(9, 0)] = [(1, 7), (5, 7, 8)]
-        woman[(9, 1)] = woman[(9, 2)] = woman[(9, 3)] = woman[(9, 4)] = [(7), (5, 7, 8)]
-        woman[(9, 5)] = [(0), (0)]
+        woman[(9, 0)] = [[1, 7], [5, 7, 8]]
+        woman[(9, 1)] = woman[(9, 2)] = woman[(9, 3)] = woman[(9, 4)] = [[7], [5, 7, 8]]
+        woman[(9, 5)] = [[0], [0]]
         
 
         return woman
@@ -156,7 +156,7 @@ def get_fashion_info(table : dict, t : int, w : int) -> tuple:
     return table[(t, w)]
 
 
-def database(gender : int, temperature : int, weather : str) -> None:
+def database(gender : int, temperature : int, weather : str) -> list:
     # if cloth[0] == 0 or len(cloth) == 0:
     #     # 예외 상황
     #     return False
@@ -181,8 +181,9 @@ def database(gender : int, temperature : int, weather : str) -> None:
 
     fashion = get_fashion_info(table, temperature_index, weather_index)        # 테이블에서 데이터를 가져옴
 
-    print(fashion)   
+    return fashion
     
 
 if __name__ == "__main__":
-    database(0, -24, '맑음')
+    fashion = database(0, 24, '맑음')
+    print(fashion)
