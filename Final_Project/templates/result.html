@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>weather_result</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    #content {
+      background-color: #fffefb;
+      display: flex;
+      flex-direction: column;
+    }
+    #headline {
+      height: 20%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      margin-left:30%;
+      margin-right:30%;
+    }
+    img{
+      padding:30px;
+    }
+    #bodyline {
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .head_content {
+      padding: 5px 15px;
+    }
+
+    .head_content:hover {
+      background-color: #f7f6f3;
+      text-decoration: underline;
+    }
+    .keywordbox{
+      display: flex;
+    }
+    .keyword{
+      padding: 20px;
+      font-weight: bold;
+    }
+    body {
+      margin: 0px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    #wrapper {
+      display: flex;
+      align-content: space-between;
+      justify-content: space-between;
+      min-height: 100vh;
+    }
+
+    #content {
+      width: 100%;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      min-width: 400px;
+      margin: 10px;
+      font-size: 18px;
+      background-color: white;
+      border: solid 1px rgb(225, 225, 225);
+      border-radius: 5px;
+    }
+
+    #title {
+      font-size: 35px;
+      padding: 20px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .title2 {
+      font-size: 25px;
+      padding: 20px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .title3 {
+      font-size: 20px;
+      padding: 10px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .bold {
+      font-weight: bold;
+    }
+
+    hr {
+      width: 400px;
+      color: #bbbbbb;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="content">
+      <div id="headline">
+        <div id="title">
+          오늘의 {{loc}} 날씨정보 : {{temp}}도, {{weather}}</div>
+        <div class="title2">추천 의상</div>
+        <div class="keywordbox">
+        {% for data in url['top'] %}
+        <div class="keyword">{{data['name']}}</div>
+        {% endfor %}
+        {% for data in url['bottom'] %}
+        <div class="keyword">{{data['name']}}</div>
+        {% endfor %}
+        </div>
+      </div>
+      <div id="bodyline">
+        <div class="title2">해당 분류에서 요즘 유행하는 패션</div>
+        {% for data in url['top'] %}
+        <div class="title3">{{data['name']}}</div>
+        <span class="imgs">
+        <img referrerpolicy="no-referrer" src="{{data['url_1']}}" alt="top1"></img>
+        <img referrerpolicy="no-referrer" src="{{data['url_2']}}" alt="top2"></img>
+        <img referrerpolicy="no-referrer" src="{{data['url_3']}}" alt="top3"></img>
+      </span>
+        {% endfor %}
+        {% for data in url['bottom'] %}
+        <div class="title3">{{data['name']}}</div>
+        <span class="imgs">
+        <img referrerpolicy="no-referrer" src="{{data['url_1']}}" alt="bottom1"></img>
+        <img referrerpolicy="no-referrer" src="{{data['url_2']}}" alt="bottom2"></img>
+        <img referrerpolicy="no-referrer" src="{{data['url_3']}}" alt="bottom3"></img>
+      </span>
+        {% endfor %}
+        
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

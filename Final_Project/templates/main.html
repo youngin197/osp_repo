@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>weather</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    #content {
+      background-color: #fffefb;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #headline {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    #bodyline {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .head_content {
+      padding: 5px 15px;
+    }
+
+    .head_content:hover {
+      background-color: #f7f6f3;
+      text-decoration: underline;
+    }
+
+    body {
+      margin: 0px;
+    }
+
+    #OTION {
+      font-size: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: "inter";
+      font-weight: lighter;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    #main {
+      display: flex;
+      padding: 10px 30px 10px 80px;
+      align-items: center;
+    }
+
+    #icon {
+      max-width: 50px;
+    }
+
+    #icon_name {
+      font-weight: bold;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    #wrapper {
+      display: flex;
+      align-content: space-between;
+      justify-content: space-between;
+      min-height: 100vh;
+    }
+
+    #content {
+      width: 100%;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      min-width: 400px;
+      margin: 10px;
+      font-size: 18px;
+      background-color: white;
+      border: solid 1px rgb(225, 225, 225);
+      border-radius: 5px;
+    }
+
+    input[type="email"] {
+      padding: 10px 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background-color: #f7f6f3;
+      border: solid 1px rgb(225, 225, 225);
+      border-radius: 5px;
+      min-width: 355px;
+      font-size: 20px;
+    }
+
+    input[type="email"]:hover {
+      border: solid 1px rgb(201, 201, 201);
+      ;
+    }
+
+    input[type="email"]:focus {
+      outline: solid 3px #abdcef;
+      border: solid 1px #00a2e3;
+    }
+
+    input[type="email"]:active {
+      outline: none;
+      border: solid 1px #00a2e3;
+    }
+
+    #email_text {
+      color: #bbbbbb;
+      font-size: 13px;
+    }
+
+    #email_text:hover {
+      color: #898989;
+    }
+
+    #email {
+      color: #ec625b;
+      background-color: #fdf5f2;
+      border: solid 1px #ec625b;
+    }
+
+    #email:hover {
+      background-color: #feece5;
+    }
+
+    #email:active {
+      background-color: #fee3d9;
+    }
+
+    #title {
+      font-size: 35px;
+      padding: 20px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    hr {
+      width: 400px;
+      color: #bbbbbb;
+    }
+
+    img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .select {
+      padding: 15px 10px;
+    }
+
+    .select input[type=radio] {
+      display: none;
+    }
+
+    .select input[type=radio]+label {
+      display: inline-block;
+      cursor: pointer;
+      height: 24px;
+      width: 90px;
+      border: 1px solid #ec625b8d;
+      line-height: 24px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .select input[type=radio]+label {
+      background-color: #fff;
+      color: #333;
+    }
+
+    .select input[type=radio]:checked+label {
+      background-color: #ec625b;
+      color: #fff;
+    }
+    form{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .select2 {
+      padding: 15px 10px;
+    }
+
+    .select2 input[type=radio] {
+      display: none;
+    }
+
+    .select2 input[type=radio]+label {
+      display: inline-block;
+      cursor: pointer;
+      height: 40px;
+      width: 90px;
+      border: 1px solid #ec625b8d;
+      line-height: 24px;
+      text-align: center;
+
+      /* font-weight:bold; */
+      font-size: 15px;
+      margin-bottom: 5px;
+      margin-left: 5px;
+    }
+
+    .select2 input[type=radio]+label {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .select2 input[type=radio]:checked+label {
+      background-color: #ec625b;
+      color: #fff;
+    }
+
+    hr {
+      border: none;
+      border-top: 3px dotted #ec625b;
+      color: #fff;
+      background-color: #fff;
+      height: 1px;
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="content">
+      <div id="headline">
+
+      </div>
+      <div id="bodyline">
+        <div id="title">
+          오늘 뭐입지?
+        </div>
+        <form action='http://127.0.0.1:5000/result' method='POST'>
+          <span>
+            <div class="select">
+              <input type="radio" id="sel1" name="gender" value="male" checked /><label for='sel1'>남자</label>
+              <!--checked로 default값을 설정할 수 있다.-->
+              <input type="radio" id="sel2" name="gender" value="female" /><label for='sel2'>여자</label>
+              <!--같은 그룹의 name 속성은 동일해야 한다.-->
+            </div>
+          </span>
+          <hr>
+          <div class="select2">
+            <!-- name="major" -->
+            <input type="radio" id="sel3" name="location" value="서울특별시" /><label for='sel3'>서울특별시</label>
+            <input type="radio" id="sel4" name="location" value="경기도" /><label for='sel4'>경기도</label>
+            <input type="radio" id="sel5" name="location" value="강원도" /><label for='sel5'>강원도</label>
+            <input type="radio" id="sel6" name="location" value="충청남도" /><label for='sel6'>충청남도</label>
+            <input type="radio" id="sel7" name="location" value="충청북도" /><label for='sel7'>충청븍도</label>
+            <input type="radio" id="sel8" name="location" value="전라남도" /><label for='sel8'>전라남도</label><br>
+            <input type="radio" id="sel9" name="location" value="전라북도" /><label for='sel9'>전라북도</label>
+            <input type="radio" id="sel10" name="location" value="경상남도" /><label for='sel10'>경상남도</label>
+            <input type="radio" id="sel11" name="location" value="경상북도" /><label for='sel11'>경상북도</label>
+            <input type="radio" id="sel12" name="location" value="인천광역시" /><label for='sel12'>인천광역시</label>
+            <input type="radio" id="sel13" name="location" value="대전광역시" /><label for='sel13'>대전광역시</label>
+            <input type="radio" id="sel14" name="location" value="대구광역시" /><label for='sel14'>대구광역시</label><br>
+            <input type="radio" id="sel15" name="location" value="광주광역시" /><label for='sel15'>광주광역시</label>
+            <input type="radio" id="sel16" name="location" value="울산광역시" /><label for='sel16'>울산광역시</label>
+            <input type="radio" id="sel17" name="location" value="부산광역시" /><label for='sel17'>부산광역시</label>
+            <input type="radio" id="sel18" name="location" value="세종특별시" /><label for='sel18'>세종특별시</label>
+            <input type="radio" id="sel19" name="location" value="제주특별시" /><label for='sel19'>제주특별시</label>
+            <input type="radio" id="sel20" name="location" value="" checked /><label for='sel20'>현재위치</label>
+          </div>
+          </label>
+          <button id="email" type="submit">결정해줘!</button>
+        </form>
+        <div id="email_text">
+          오늘 뭐 입을지 추천해드립니다. 당신이 적절한 옷을 가지고 있을 지는 모르겠네요.
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>
