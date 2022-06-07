@@ -38,13 +38,12 @@ def temperature_index_creator(t: int) -> int:
 def weather_index_creator(w: str) -> int:
     # 날씨를 바탕으로 날씨의 인덱스를 반환하는 함수
     # 999를 반환하면 해당 날씨는 취급하지 않는다는 뜻임
-    w = w[0]
-    if w == '맑': return 0
-    elif w == '구': return 1
-    elif w == '흐': return 2
-    elif w == '비': return 3
-    elif w == '소': return 4
-    elif w == '눈': return 5
+    if '맑' in w: return 0
+    elif '구' in w: return 1
+    elif '흐' in w: return 2
+    elif '비' in w: return 3
+    elif '소' in w: return 4
+    elif '눈' in w: return 5
     else: return 999
 
 
@@ -157,10 +156,6 @@ def get_fashion_info(table : dict, t : int, w : int) -> tuple:
 
 
 def database(gender : int, temperature : int, weather : str) -> list:
-    # if cloth[0] == 0 or len(cloth) == 0:
-    #     # 예외 상황
-    #     return False
-
     temperature_index = temperature_index_creator(temperature)     # 기온을 바탕으로 기온의 인덱스를 받아옴
 
     if temperature_index == 999:
@@ -181,9 +176,16 @@ def database(gender : int, temperature : int, weather : str) -> list:
 
     fashion = get_fashion_info(table, temperature_index, weather_index)        # 테이블에서 데이터를 가져옴
 
-    return fashion
+    if fashion == [[0], [0]]:
+        print("해당 날씨에는 나가지 마십시오.")
+        return
+
+    url = get_data.get_data(gender, fashion)
+
+    return url
     
 
 if __name__ == "__main__":
-    fashion = database(0, 24, '맑음')
-    print(fashion)
+    fashion = database(1, 21, '맑음')
+    print(*fashion['top'], sep='\n')
+    print(*fashion['bottom'], sep='\n')
