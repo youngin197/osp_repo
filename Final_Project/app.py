@@ -26,39 +26,39 @@ def get_index(gender : str, location : int) -> tuple:
     else: 
         gend = 1
 
-    if '서울' in location:
+    if 'seoul' in location:
         index = 0
-    elif '경기' in location:
+    elif 'kyunggi' in location:
         index = 1
-    elif '강원' in location:
+    elif 'kang' in location:
         index = 2
-    elif '충청남' in location:
+    elif 'chungnam' in location:
         index = 3 
-    elif '충청북' in location:
+    elif 'chungbuk' in location:
         index = 4
-    elif '전라남' in location:
+    elif 'jeonnam' in location:
         index = 5
-    elif '전라북' in location:
+    elif 'jeonbuk' in location:
         index = 6
-    elif '경상남' in location:
+    elif 'kyungnam' in location:
         index = 7
-    elif '경상북' in location:
+    elif 'kyungbuk' in location:
         index = 8
-    elif '인천' in location:
+    elif 'inchun' in location:
         index = 9
-    elif '대전' in location:
+    elif 'daejeon' in location:
         index = 10
-    elif '대구' in location:
+    elif 'dague' in location:
         index = 11
-    elif '광주' in location:
+    elif 'gwangju' in location:
         index = 12
-    elif '울산' in location:
+    elif 'ulsan' in location:
         index = 13
-    elif '부산' in location:
+    elif 'busan' in location:
         index = 14
-    elif '세종' in location:
+    elif 'sejong' in location:
         index = 15
-    elif '제주' in location:
+    elif 'jeju' in location:
         index = 16
 
 
@@ -81,6 +81,9 @@ def get_user_info():
         location = request.form['location']
 
         gend, index = get_index(gender, location)
+
+        if index == 11:     # 현위치, 대구
+            location = 'dague'
 
         temp, weather = weather_crawl.run_weather(index)
 
