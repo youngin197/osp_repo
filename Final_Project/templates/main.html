@@ -26,48 +26,10 @@
       justify-content: center;
     }
 
-    .head_content {
-      padding: 5px 15px;
-    }
-
-    .head_content:hover {
-      background-color: #f7f6f3;
-      text-decoration: underline;
-    }
-
-    body {
-      margin: 0px;
-    }
-
-    #OTION {
-      font-size: 40px;
-      margin-bottom: 30px;
-      text-align: center;
-      font-family: "inter";
-      font-weight: lighter;
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
     #main {
       display: flex;
       padding: 10px 30px 10px 80px;
       align-items: center;
-    }
-
-    #icon {
-      max-width: 50px;
-    }
-
-    #icon_name {
-      font-weight: bold;
-    }
-
-    .link:hover {
-      text-decoration: underline;
     }
 
     #wrapper {
@@ -94,52 +56,26 @@
       border-radius: 5px;
     }
 
-    input[type="email"] {
-      padding: 10px 20px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      background-color: #f7f6f3;
-      border: solid 1px rgb(225, 225, 225);
-      border-radius: 5px;
-      min-width: 355px;
-      font-size: 20px;
-    }
-
-    input[type="email"]:hover {
-      border: solid 1px rgb(201, 201, 201);
-      ;
-    }
-
-    input[type="email"]:focus {
-      outline: solid 3px #abdcef;
-      border: solid 1px #00a2e3;
-    }
-
-    input[type="email"]:active {
-      outline: none;
-      border: solid 1px #00a2e3;
-    }
-
-    #email_text {
+    #comment {
       color: #bbbbbb;
       font-size: 13px;
     }
 
-    #email_text:hover {
+    #comment:hover {
       color: #898989;
     }
 
-    #email {
+    #decide {
       color: #ec625b;
       background-color: #fdf5f2;
       border: solid 1px #ec625b;
     }
 
-    #email:hover {
+    #decide:hover {
       background-color: #feece5;
     }
 
-    #email:active {
+    #decide:active {
       background-color: #fee3d9;
     }
 
@@ -158,89 +94,159 @@
     }
 
     hr {
-      width: 400px;
+      width: 1000px;
       color: #bbbbbb;
     }
 
-    img {
-      width: 30px;
-      margin-right: 10px;
-    }
-
-    .select {
-      padding: 15px 10px;
-    }
-
-    .select input[type=radio] {
-      display: none;
-    }
-
-    .select input[type=radio]+label {
-      display: inline-block;
-      cursor: pointer;
-      height: 24px;
-      width: 90px;
-      border: 1px solid #ec625b8d;
-      line-height: 24px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 13px;
-    }
-
-    .select input[type=radio]+label {
-      background-color: #fff;
-      color: #333;
-    }
-
-    .select input[type=radio]:checked+label {
-      background-color: #ec625b;
-      color: #fff;
-    }
-    form{
-      display:flex;
+    form {
+      display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .select2 {
-      padding: 15px 10px;
+
+    .gender {
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .select2 input[type=radio] {
+    .gender input[type=radio] {
       display: none;
     }
 
-    .select2 input[type=radio]+label {
+    .gender input[type=radio]+label {
       display: inline-block;
       cursor: pointer;
-      height: 40px;
-      width: 90px;
-      border: 1px solid #ec625b8d;
-      line-height: 24px;
+      border: 1px solid #ec625b;
+      color: #ec625b;
+      padding: 5px 10px;
       text-align: center;
-
-      /* font-weight:bold; */
-      font-size: 15px;
-      margin-bottom: 5px;
-      margin-left: 5px;
+      font-weight: bold;
+      font-size: 13px;
+      border-radius: 5px;
     }
 
-    .select2 input[type=radio]+label {
-      background-color: #fff;
+    .gender input[type=radio]:hover+label {
+      background-color: #fee3d9;
+    }
+
+    .gender input[type=radio]:checked+label {
+      background-color: #ec625b;
+      color: white;
+    }
+
+    .map {
+      padding: 15px 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .locs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .map input[type=radio] {
+      display: none;
+    }
+
+    .map input[type=radio]+label {
+      background-color: rgba(255, 255, 255, 0.7);
+      font-size: 15px;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      text-align: center;
       color: #000;
     }
 
-    .select2 input[type=radio]:checked+label {
-      background-color: #ec625b;
-      color: #fff;
+    label[for=gw] {
+      top: 200px;
+      left: 100px;
     }
 
-    hr {
-      border: none;
-      border-top: 3px dotted #ec625b;
-      color: #fff;
-      background-color: #fff;
-      height: 1px;
-      width: 50%;
+    label[for=sj] {
+      top: -540px;
+      left: -178px;
+    }
+
+    label[for=su] {
+      top: 200px;
+      left: -20px;
+    }
+
+    label[for=gg] {
+      top: 240px;
+      left: -10px;
+    }
+
+    label[for=cb] {
+      top: 331px;
+      left: -52px;
+    }
+
+    label[for=cn] {
+      top: 386px;
+      left: -150px;
+    }
+
+    label[for=jb] {
+      top: 529px;
+      left: -198px;
+    }
+
+    label[for=jn] {
+      top: 660px;
+      left: -220px;
+    }
+
+    label[for=gb] {
+      top: 412px;
+      left: -42px;
+    }
+
+    label[for=gn] {
+      top: 598px;
+      left: -86px;
+    }
+
+    label[for=ic] {
+      top: -703px;
+      left: -62px;
+    }
+
+    label[for=gj] {
+      top: -290px;
+      left: -178px;
+    }
+
+    label[for=us] {
+      top: -325px;
+      left: 158px;
+    }
+
+    label[for=bs] {
+      top: -270px;
+      left: 100px;
+    }
+
+    label[for=dj] {
+      top: -495px;
+      left: -5px;
+    }
+
+    label[for=dg] {
+      top: -381px;
+      left: 127px;
+    }
+
+    label[for=jj] {
+      top: -245px;
+      left: 200px;
+    }
+
+    label[for=origin] {
+      left: -121px;
     }
   </style>
 </head>
@@ -249,48 +255,54 @@
   <div id="wrapper">
     <div id="content">
       <div id="headline">
-
       </div>
       <div id="bodyline">
         <div id="title">
           오늘 뭐입지?
         </div>
         <form action='http://127.0.0.1:5000/result' method='POST'>
-          <span>
-            <div class="select">
-              <input type="radio" id="sel1" name="gender" value="male" checked /><label for='sel1'>남자</label>
-              <!--checked로 default값을 설정할 수 있다.-->
-              <input type="radio" id="sel2" name="gender" value="female" /><label for='sel2'>여자</label>
-              <!--같은 그룹의 name 속성은 동일해야 한다.-->
-            </div>
-          </span>
-          <hr>
-          <div class="select2">
-            <!-- name="major" -->
-            <input type="radio" id="sel3" name="location" value="서울특별시" /><label for='sel3'>서울특별시</label>
-            <input type="radio" id="sel4" name="location" value="경기도" /><label for='sel4'>경기도</label>
-            <input type="radio" id="sel5" name="location" value="강원도" /><label for='sel5'>강원도</label>
-            <input type="radio" id="sel6" name="location" value="충청남도" /><label for='sel6'>충청남도</label>
-            <input type="radio" id="sel7" name="location" value="충청북도" /><label for='sel7'>충청븍도</label>
-            <input type="radio" id="sel8" name="location" value="전라남도" /><label for='sel8'>전라남도</label><br>
-            <input type="radio" id="sel9" name="location" value="전라북도" /><label for='sel9'>전라북도</label>
-            <input type="radio" id="sel10" name="location" value="경상남도" /><label for='sel10'>경상남도</label>
-            <input type="radio" id="sel11" name="location" value="경상북도" /><label for='sel11'>경상북도</label>
-            <input type="radio" id="sel12" name="location" value="인천광역시" /><label for='sel12'>인천광역시</label>
-            <input type="radio" id="sel13" name="location" value="대전광역시" /><label for='sel13'>대전광역시</label>
-            <input type="radio" id="sel14" name="location" value="대구광역시" /><label for='sel14'>대구광역시</label><br>
-            <input type="radio" id="sel15" name="location" value="광주광역시" /><label for='sel15'>광주광역시</label>
-            <input type="radio" id="sel16" name="location" value="울산광역시" /><label for='sel16'>울산광역시</label>
-            <input type="radio" id="sel17" name="location" value="부산광역시" /><label for='sel17'>부산광역시</label>
-            <input type="radio" id="sel18" name="location" value="세종특별시" /><label for='sel18'>세종특별시</label>
-            <input type="radio" id="sel19" name="location" value="제주특별시" /><label for='sel19'>제주특별시</label>
-            <input type="radio" id="sel20" name="location" value="" checked /><label for='sel20'>현재위치</label>
+          <div class="gender">
+            <input type="radio" id="man" name="gender" value="male" checked /><label for='man'>남자</label>
+            <input type="radio" id="woman" name="gender" value="female" /><label for='woman'>여자</label>
           </div>
+          <div class="map">
+            <div class="locs">
+              <input type="radio" id="su" name="location" value="seoul" /><label for="su">서울</label>
+              <input type="radio" id="gg" name="location" value="kyunggi" /><label for="gg">경기</label>
+              <input type="radio" id="gw" name="location" value="kang" /><label for="gw">강원</label>
+              <input type="radio" id="cn" name="location" value="chungnam" /><label for="cn">충남</label>
+              <input type="radio" id="cb" name="location" value="chungbuk" /><label for="cb">충북</label>
+              <input type="radio" id="jn" name="location" value="jeonnam" /><label for="jn">전남</label>
+              <input type="radio" id="jb" name="location" value="jeonbuk" /><label for="jb">전북</label>
+              <input type="radio" id="gn" name="location" value="kyungnam" /><label for="gn">경남</label>
+              <input type="radio" id="gb" name="location" value="kyungbuk" /><label for="gb">경북</label>
+            </div>
+            <img id="map" src="{{ url_for('static',filename='image/origin.jpg') }}" alt="origin">
+            <div class="locs">
+              <input type="radio" id="ic" name="location" value="inchun" /><label for="ic">인천</label>
+              <input type="radio" id="dj" name="location" value="daejeon" /><label for="dj">대전</label>
+              <input type="radio" id="dg" name="location" value="dague" checked /><label for='dg'>대구</label>
+              <input type="radio" id="gj" name="location" value="gwangju" /><label for='gj'>광주</label>
+              <input type="radio" id="us" name="location" value="ulsan" /><label for='us'>울산</label>
+              <input type="radio" id="bs" name="location" value="busan" /><label for='bs'>부산</label>
+              <input type="radio" id="sj" name="location" value="sejong" /><label for='sj'>세종</label>
+              <input type="radio" id="jj" name="location" value="jeju" /><label for='jj'>제주</label>
+              <input type="radio" id="origin" name="location" value="origin" /><label for='origin'>현위치</label>
+            </div>
+          </div>
+          <script>
+            var base_src = "{{ url_for('static', filename='image/') }}"
+            for (var radio_input of document.getElementsByName('location')) radio_input.addEventListener('click', set_img);
+            function set_img(e) {
+              console.log(e.target.value);
+              document.getElementById('map').setAttribute('src', base_src + e.target.value + ".jpg");
+            }
+          </script>
           </label>
-          <button id="email" type="submit">결정해줘!</button>
+          <button id="decide" type="submit">결정해줘!</button>
         </form>
-        <div id="email_text">
-          오늘 뭐 입을지 추천해드립니다. 당신이 적절한 옷을 가지고 있을 지는 모르겠네요.
+        <div id="comment">
+          오늘의 의상을 추천해드립니다. 거주 지역을 클릭하고 입을 옷 고민을 해결하세요.
         </div>
       </div>
     </div>

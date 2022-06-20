@@ -11,24 +11,64 @@
       display: flex;
       flex-direction: column;
     }
+
     #headline {
-      height: 20%;
+      height: 10%;
       display: flex;
       align-items: center;
+      font-size: 40px;
+      flex-direction: row;
+      font-weight: bold;
+      justify-content: flex-start;
+      padding: 20px 40px 0px 40px;
+      
+    }
+
+    .left {
+      margin: auto;
+      padding: inherit;
+      width: 30%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-right: solid 1px #bbbbbb;
+    }
+
+    #bodyleft {
+      margin: auto;
+      padding: inherit;
+      width: 30%;
+      height: 100%;
+      display: flex;
       flex-direction: column;
-      justify-content: center;
-      margin-left:30%;
-      margin-right:30%;
+      justify-content: flex-start;
+      border-right: solid 1px #bbbbbb;
     }
-    img{
-      padding:30px;
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      align-items: center;
     }
+
+    #weather {
+      padding: 0px 30px;
+    }
+
+    img {
+      padding: 0px 30px 30px 30px;
+      max-height: 100%;
+    }
+
     #bodyline {
       height: 80%;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
+      align-items: flex-start;
       justify-content: center;
+      padding: 0px 40px;
     }
 
     .head_content {
@@ -39,12 +79,23 @@
       background-color: #f7f6f3;
       text-decoration: underline;
     }
-    .keywordbox{
+
+    .tagbox {
       display: flex;
+      flex-direction: column;
     }
-    .keyword{
-      padding: 20px;
+
+    .tag {
+      display: flex;
+      margin: 10px;
+      padding: 10px;
       font-weight: bold;
+      justify-content: center;
+      border: solid 1px #bbbbbb;
+      border-radius: 5px;
+    }
+    .tag:hover{
+      background-color: #dcdcdc;
     }
     body {
       margin: 0px;
@@ -53,10 +104,6 @@
     a {
       text-decoration: none;
       color: black;
-    }
-
-    .link:hover {
-      text-decoration: underline;
     }
 
     #wrapper {
@@ -83,14 +130,6 @@
       border-radius: 5px;
     }
 
-    #title {
-      font-size: 35px;
-      padding: 20px;
-      font-weight: bold;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
     .title2 {
       font-size: 25px;
       padding: 20px;
@@ -99,6 +138,7 @@
       flex-direction: column;
       align-items: center;
     }
+
     .title3 {
       font-size: 20px;
       padding: 10px;
@@ -107,13 +147,35 @@
       flex-direction: column;
       align-items: center;
     }
+
+    .title4 {
+      font-size: 25px;
+      padding: 10px;
+      font-weight: bold;
+    }
+
     .bold {
       font-weight: bold;
     }
 
+    .imgbox {
+      width: 300px;
+      height: 300px;
+      opacity: 30%;
+    }
+    .imgbox:hover {
+      opacity: 100%;
+    }
+    
     hr {
-      width: 400px;
+      margin-left: 2%;
+      margin-right: 2%;
       color: #bbbbbb;
+    }
+
+    .imgs {
+      display: flex;
+      padding: 40px;
     }
   </style>
 </head>
@@ -122,40 +184,76 @@
   <div id="wrapper">
     <div id="content">
       <div id="headline">
-        <div id="title">
-          오늘의 {{loc}} 날씨정보 : {{temp}}도, {{weather}}</div>
-        <div class="title2">추천 의상</div>
-        <div class="keywordbox">
-        {% for data in url['top'] %}
-        <div class="keyword">{{data['name']}}</div>
-        {% endfor %}
-        {% for data in url['bottom'] %}
-        <div class="keyword">{{data['name']}}</div>
-        {% endfor %}
+        <div class="left">
+          <span id="location">{{loc}}</span>
+          <span id="weather">
+            <span>{{temp}}℃, {{weather}}</span>
+          </span>
+        </div>
+        <div class="right">
+          오늘 입을 의상
         </div>
       </div>
+      <hr>
       <div id="bodyline">
-        <div class="title2">해당 분류에서 요즘 유행하는 패션</div>
-        {% for data in url['top'] %}
-        <div class="title3">{{data['name']}}</div>
-        <span class="imgs">
-        <img referrerpolicy="no-referrer" src="{{data['url_1']}}" alt="top1"></img>
-        <img referrerpolicy="no-referrer" src="{{data['url_2']}}" alt="top2"></img>
-        <img referrerpolicy="no-referrer" src="{{data['url_3']}}" alt="top3"></img>
-      </span>
-        {% endfor %}
-        {% for data in url['bottom'] %}
-        <div class="title3">{{data['name']}}</div>
-        <span class="imgs">
-        <img referrerpolicy="no-referrer" src="{{data['url_1']}}" alt="bottom1"></img>
-        <img referrerpolicy="no-referrer" src="{{data['url_2']}}" alt="bottom2"></img>
-        <img referrerpolicy="no-referrer" src="{{data['url_3']}}" alt="bottom3"></img>
-      </span>
-        {% endfor %}
-        
+        <div id="bodyleft">
+          <div class="title2">추천 의상</div>
+          <div class="tagbox">
+            <div class="title4">상의</div>
+            {% for data in url['top'] %}
+            <a class="tag">#{{data['name']}}</a>
+            {% endfor %}
+            <div class="title4">하의</div>
+            {% for data in url['bottom'] %}
+            <a class="tag">#{{data['name']}}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="right">
+          <div class="title2"></div>
+          {% for data in url['top'] %}
+          <div class="title3">{{data['name']}}</div>
+          <span class="imgs">
+            <div class="imgbox"><img referrerpolicy="no-referrer" src="{{data['url_1']}}" alt="top1"></img></div>
+            <div class="imgbox"><img referrerpolicy="no-referrer" src="{{data['url_2']}}" alt="top2"></img></div>
+            <div class="imgbox"><img referrerpolicy="no-referrer" src="{{data['url_3']}}" alt="top3"></img></div>
+          </span>
+          {% endfor %}
+          {% for data in url['bottom'] %}
+          <div class="title3">{{data['name']}}</div>
+          <span class="imgs">
+            <div class="imgbox"><img referrerpolicy="no-referrer" src="{{data['url_1']}}" alt="bottom1"></img></div>
+            <div class="imgbox"><img referrerpolicy="no-referrer" src="{{data['url_2']}}" alt="bottom2"></img></div>
+            <div class="imgbox"><img referrerpolicy="no-referrer" src="{{data['url_3']}}" alt="bottom3"></img></div>
+          </span>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
+  <script>
+    dicloc = {
+      "daejeon": "대전",
+      "seoul": "서울",
+      "kyunggi": "경기",
+      "kang": "강원",
+      "chungnam": "충남",
+      "chungbuk": "충북",
+      "jeonnam": "전남",
+      "jeonbuk": "전북",
+      "kyungnam": "경남",
+      "kyungbuk": "경북",
+      "inchun": "인천",
+      "daejeon": "대전",
+      "dague": "대구",
+      "gwangju": "광주",
+      "ulsan": "울산",
+      "busan": "부산",
+      "sejong": "세종",
+      "jeju": "제주"
+    }
+    document.getElementById("location").innerHTML = dicloc[document.getElementById("location").innerHTML]
+  </script>
 </body>
 
 </html>
