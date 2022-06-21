@@ -89,7 +89,7 @@ def get_user_info():
 
         url = database.database(gender=gend, temperature=float(temp), weather=weather)
         
-        print(url)
+        # print(url)
         return render_template('result.html', temp = temp, weather = weather, loc = location, url = url)
 
       #return render_template('result.html')
